@@ -2,7 +2,12 @@ import React, { Component } from "react";
 
 class Graph extends Component {
   render() {
-    return <div>Graph</div>;
+    return (
+      <div>
+        Graph
+        <h1>Graphs</h1>
+      </div>
+    );
   }
 }
 
