@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# TradingView ReactJS with Binance API
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ 
 
-## Available Scripts
+A desktop application allows you to monitor binance crytocurrency data using Lightweight Charting Library. Lightweight Charting Library is a standalone solution for displaying charts is used to display Binance data.
 
-In the project directory, you can run:
+ 
 
-### `yarn start`
+  - Built using ElectroneJS
+  - Real time trading charts
+  - Plot trading view charts with Binance data
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+ 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# Features!
 
-### `yarn test`
+ 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  - Runs Live
+  - Simplified Interface
+  - Built on Websockets instead of REST api.
 
-### `yarn build`
+ 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Tech
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+TradingView uses a number of open source projects to work properly:
 
-### `yarn eject`
+ 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* [ReactJS] - HTML enhanced for web apps!
+* [ElectronJS] - awesome desktop-based application generator
+* [Lightweight Charts] - Library to display financial HTML5 charts
+* [Kline/Candlestick chart] - API to generate lightweight charts
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+ 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Installation
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+ 
 
-## Learn More
+1. Clone this repository git clone https://github.com/Dharmik6017/Trading-Charts.git
+2. Run node modules and view tradingview chart   
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+ 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```sh
+$ cd Trading-Charts
+$ yarn install
+$ yarn start
+```
 
-### Code Splitting
+ 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```sh
+$ cd Trading-Charts
+$ npm install
+$ npm run start
+```
