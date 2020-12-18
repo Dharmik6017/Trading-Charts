@@ -14,10 +14,9 @@ class Graph extends Component {
     await this.getData();
 
     const { containerId } = this.props;
-    const { data, displayWidth } = this.state;
-    const width = window.innerWidth;
+    const { data } = this.state;
     const chart = createChart(containerId, {
-      width: 1170,
+      width: 1000,
       height: 400,
       layout: {
         backgroundColor: "#191B20",
