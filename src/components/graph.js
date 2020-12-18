@@ -3,11 +3,11 @@ import { createChart } from "lightweight-charts";
 import moment from "moment";
 import binanace from "../apis/binanace";
 
-class Graph extends Component {
-  state = { data: [], displayWidth: window.innerWidth };
+class Chart extends Component {
+  state = { data: [] }; //Defining a State variable
 
   static defaultProps = {
-    containerId: "lightweight_chart_container",
+    containerId: "lightweight_chart_container", // Added Default Prop for display Chart
   };
 
   async componentDidMount() {
@@ -38,7 +38,7 @@ class Graph extends Component {
         borderColor: "rgba(197, 203, 206, 0.8)",
       },
     });
-    const lineSeries = chart.addCandlestickSeries({
+    const Candlestick = chart.addCandlestickSeries({
       upColor: "#02C076",
       downColor: "#D9304E",
       borderVisible: true,
@@ -49,17 +49,20 @@ class Graph extends Component {
       wickUpColor: "#02C076",
     });
 
-    lineSeries.setData(data);
+    Candlestick.setData(data);
   }
 
   getData = async () => {
     const response = await binanace.get("/klines", {
       params: {
-        symbol: "ETHBTC",
-        interval: "1d",
-        limit: "1000",
+        symbol: "ETHBTC", //Passed symbol of Etherium to BitCoin
+        interval: "1d", // Passed a interval in day you can change it to hours and many more
+        limit: "1000", // Limit of 1000 days data
       },
     });
+
+    // We are getting data into array of array but chart need a data of Array of object and Key Value pair
+    // that's why we are filtering data in Array of object and in Key Value Pair
 
     const filteredData = response.data.map((u) => {
       return {
@@ -70,7 +73,7 @@ class Graph extends Component {
         close: parseFloat(u[4]),
       };
     });
-    this.setState({ data: filteredData });
+    this.setState({ data: filteredData }); // setting filtered data into state variable
   };
 
   render() {
@@ -78,4 +81,4 @@ class Graph extends Component {
   }
 }
 
-export default Graph;
+export default Chart;
