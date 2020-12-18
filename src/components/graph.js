@@ -13,27 +13,8 @@ class Graph extends Component {
   chart = null;
 
   async componentDidMount() {
-    await this.data();
-  }
-
-  data = async () => {
-    await axios
-      .get(
-        `https://api.binance.com/api/v3/klines?symbol=EOSETH&interval=1d&limit=500`
-      )
-      .then((res) => {
-        console.log("Response", res);
-        this.setState({ data: res.data });
-      })
-      .catch((err) => {
-        console.log("error", err);
-      });
-  };
-
-  render() {
-    const filteredData =
-      this.state.data &&
-      this.state.data.map((u) => {
+    const filteredData = await this.data().then((data) =>
+      data.map((u) => {
         return {
           time: moment(u[0]).format(`YYYY-MM-DD`),
           open: parseFloat(u[1]),
@@ -41,19 +22,48 @@ class Graph extends Component {
           low: parseFloat(u[3]),
           close: parseFloat(u[4]),
         };
-      });
-    const chart = createChart(this.props.containerId, {
+      })
+    );
+    const chart = createChart(this.props && this.props.containerId, {
       width: 1500,
       height: 600,
     });
     this.chart = chart;
+    const lineSeries = chart.addCandlestickSeries({
+      upColor: "#6495ED",
+      downColor: "#FF6347",
+      borderVisible: true,
+      wickVisible: true,
+      borderColor: "#000000",
+      wickColor: "#000000",
+      borderUpColor: "#4682B4",
+      borderDownColor: "#A52A2A",
+      wickUpColor: "#4682B4",
+      wickDownColor: "#A52A2A",
+    });
 
-    const lineSeries = chart.addCandlestickSeries();
+    lineSeries.setData(filteredData);
+  }
 
-    filteredData && lineSeries.setData(filteredData);
+  data = async () => {
+    const data = await axios
+      .get(
+        `https://api.binance.com/api/v3/klines?symbol=EOSETH&interval=1d&limit=1000`
+      )
+      .then((res) => {
+        return res;
+      })
+      .catch((err) => {
+        console.log("error", err);
+      });
 
+    return data.data;
+  };
+
+  render() {
     return (
       <div>
+        Hello Therererrre
         <div id={this.props.containerId} className="LightweightChart"></div>
       </div>
     );
