@@ -59,3 +59,9 @@ $ cd Trading-Charts
 $ npm install
 $ npm run start
 ```
+
+### Screenshot
+
+
+
+
