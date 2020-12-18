@@ -62,6 +62,4 @@ $ npm run start
 
 ### Screenshot
 
-
-
-
+![Capture](https://user-images.githubusercontent.com/25260994/102619553-a40f5200-4162-11eb-8204-65cab91de458.JPG)
