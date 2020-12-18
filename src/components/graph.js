@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import axios from "axios";
 import { createChart } from "lightweight-charts";
 import moment from "moment";
+import binanace from "../apis/binanace";
 
 class Graph extends Component {
   state = { data: [] };
@@ -10,63 +10,72 @@ class Graph extends Component {
     containerId: "lightweight_chart_container",
   };
 
-  chart = null;
-
   async componentDidMount() {
-    const filteredData = await this.data().then((data) =>
-      data.map((u) => {
-        return {
-          time: moment(u[0]).format(`YYYY-MM-DD`),
-          open: parseFloat(u[1]),
-          high: parseFloat(u[2]),
-          low: parseFloat(u[3]),
-          close: parseFloat(u[4]),
-        };
-      })
-    );
-    const chart = createChart(this.props && this.props.containerId, {
-      width: 1500,
+    await this.getData();
+
+    const { containerId } = this.props;
+    const { data } = this.state;
+    const width = window.innerWidth;
+    const chart = createChart(containerId, {
+      width: width / 1.2,
       height: 600,
+      layout: {
+        backgroundColor: "#191B20",
+        textColor: "#fff",
+      },
+      grid: {
+        vertLines: {
+          color: "rgba(197, 203, 206, 0.1)",
+        },
+        horzLines: {
+          color: "rgba(197, 203, 206, 0.1)",
+        },
+      },
+
+      rightPriceScale: {
+        borderColor: "rgba(197, 203, 206, 0.8)",
+      },
+      timeScale: {
+        borderColor: "rgba(197, 203, 206, 0.8)",
+      },
     });
-    this.chart = chart;
     const lineSeries = chart.addCandlestickSeries({
-      upColor: "#6495ED",
-      downColor: "#FF6347",
+      upColor: "#02C076",
+      downColor: "#D9304E",
       borderVisible: true,
       wickVisible: true,
-      borderColor: "#000000",
-      wickColor: "#000000",
-      borderUpColor: "#4682B4",
-      borderDownColor: "#A52A2A",
-      wickUpColor: "#4682B4",
-      wickDownColor: "#A52A2A",
+      borderUpColor: "#02C076",
+      borderDownColor: "#D9304E",
+      wickDownColor: "#D9304E",
+      wickUpColor: "#02C076",
     });
 
-    lineSeries.setData(filteredData);
+    lineSeries.setData(data);
   }
 
-  data = async () => {
-    const data = await axios
-      .get(
-        `https://api.binance.com/api/v3/klines?symbol=EOSETH&interval=1d&limit=1000`
-      )
-      .then((res) => {
-        return res;
-      })
-      .catch((err) => {
-        console.log("error", err);
-      });
+  getData = async () => {
+    const response = await binanace.get("/klines", {
+      params: {
+        symbol: "ETHBTC",
+        interval: "1d",
+        limit: "1000",
+      },
+    });
 
-    return data.data;
+    const filteredData = response.data.map((u) => {
+      return {
+        time: moment(u[0]).format(`YYYY-MM-DD`),
+        open: parseFloat(u[1]),
+        high: parseFloat(u[2]),
+        low: parseFloat(u[3]),
+        close: parseFloat(u[4]),
+      };
+    });
+    this.setState({ data: filteredData });
   };
 
   render() {
-    return (
-      <div>
-        Hello Therererrre
-        <div id={this.props.containerId} className="LightweightChart"></div>
-      </div>
-    );
+    return <div id={this.props.containerId}></div>;
   }
 }
 
