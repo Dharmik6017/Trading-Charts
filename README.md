@@ -18,7 +18,7 @@ A desktop application allows you to monitor binance crytocurrency data using Lig
 
   - Runs Live
   - Simplified Interface
-  - Built on Websockets instead of REST api.
+  - Built on Electron JS, and Binanace API.
 
  
 
