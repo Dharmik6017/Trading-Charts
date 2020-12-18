@@ -48,7 +48,7 @@ TradingView uses a number of open source projects to work properly:
 
 ```sh
 $ cd Trading-Charts
-$ yarn install
+$ yarn
 $ yarn start
 ```
 
