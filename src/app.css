@@ -2,13 +2,7 @@
   height: 100vh;
   justify-content: center;
   align-items: center;
-  /* background-color: red; */
   display: flex;
-  /* background: linear-gradient(
-    0deg,
-    hsla(0, 0%, 0%, 1) 9%,
-    hsla(244, 42%, 13%, 1) 49%
-  ); */
   background: #14151a;
 }
 
