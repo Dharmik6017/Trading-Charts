@@ -4,7 +4,7 @@ import moment from "moment";
 import binanace from "../apis/binanace";
 
 class Graph extends Component {
-  state = { data: [] };
+  state = { data: [], displayWidth: window.innerWidth };
 
   static defaultProps = {
     containerId: "lightweight_chart_container",
@@ -14,11 +14,11 @@ class Graph extends Component {
     await this.getData();
 
     const { containerId } = this.props;
-    const { data } = this.state;
+    const { data, displayWidth } = this.state;
     const width = window.innerWidth;
     const chart = createChart(containerId, {
-      width: width / 1.2,
-      height: 600,
+      width: 1170,
+      height: 400,
       layout: {
         backgroundColor: "#191B20",
         textColor: "#fff",

@@ -9,11 +9,9 @@ const style = {
 };
 
 class App extends React.Component {
-  state = { height: window.innerHeight };
-
   render() {
     return (
-      <div className="App" style={style.container}>
+      <div className="App" style={{ height: "100vh" }}>
         <div className="Graph">
           <h1 className="header">ETHBTC Crypto Chart</h1>
           <Graph />
