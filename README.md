@@ -1,4 +1,4 @@
-# TradingView ReactJS with Binance API
+# TradingView Candlestick chart with Binance API
 
  
 
