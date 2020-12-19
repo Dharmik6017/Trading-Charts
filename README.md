@@ -2,7 +2,7 @@
 
  
 
-A desktop application allows you to monitor binance crytocurrency data using Lightweight Charting Library. Lightweight Charting Library is a standalone solution for displaying charts is used to display Binance data.
+A desktop application allows you to monitor binance cryptocurrency data using Lightweight Charting Library. Lightweight Charting Library is a standalone solution for displaying charts is used to display Binance data.
 
  
 
